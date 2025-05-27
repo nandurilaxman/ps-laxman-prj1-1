@@ -2,6 +2,7 @@ from sqlalchemy import inspect
 from datetime import datetime
 from app import db, app
 
+
 class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
@@ -9,6 +10,7 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
 
 class Task(db.Model):
     __tablename__ = "task"
@@ -20,6 +22,7 @@ class Task(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     user = db.relationship("User", backref=db.backref("tasks", lazy=True))
+
 
 with app.app_context():
     inspector = inspect(db.engine)
