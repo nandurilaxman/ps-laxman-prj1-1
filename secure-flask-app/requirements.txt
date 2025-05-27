@@ -1,0 +1,10 @@
+Flask
+Flask-SQLAlchemy
+Flask-JWT-Extended
+Flask-Migrate
+bcrypt
+python-dotenv
+Flask-Cors
+black
+flake8
+bandit
